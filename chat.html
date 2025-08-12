@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-wf-domain="aupulens" data-wf-site="67ae4a75c083dc1cf3edce9c">
+<head>
+  <meta charset="utf-8">
+  <title>Chat | Aupulens</title>
+  <meta name="description" content="Public chat room by Aupulens. Chat in real time without logging in. Choose a nickname and start chatting.">
+  <meta content="Chat | Aupulens" property="og:title">
+  <meta content="Public chat room by Aupulens. Chat in real time without logging in. Choose a nickname and start chatting." property="og:description">
+  <meta content="https://aupulens.com/assets/ID.png" property="og:image">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aupulens">
+  <meta property="og:url" content="https://aupulens.com/chat.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Aupulens">
+  <link rel="canonical" href="https://aupulens.com/chat.html">
+  <link rel="alternate" hreflang="en" href="https://aupulens.com/chat.html">
+  <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
+  <link href="67ae4a75c083dc1cf3edce9c/css/normal-computing-01.webflow.shared.962500c0e.css" rel="stylesheet" type="text/css">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon/android-chrome-512x512.png">
+  <script async src="gtag/js?id=G-2PJ5973T5Y"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('set','developer_id.dZGVlNj',true);gtag('config','G-2PJ5973T5Y');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aupulens",
+    "url": "https://aupulens.com/",
+    "logo": "https://aupulens.com/assets/ID.png"
+  }
+  </script>
+
+  <style>
+    /* Fonts to match the attached component system look */
+    @font-face { font-family: 'ABCDiatype'; src: url('67ae4a75c083dc1cf3edce9c/67ae4b762ad8d268f535f9cc_ABCDiatype-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'ABCDiatype'; src: url('67ae4a75c083dc1cf3edce9c/67ae4b764dd4bf620e29e46e_ABCDiatype-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'ABCDiatypeMono'; src: url('67ae4a75c083dc1cf3edce9c/67ae4b76fd4b83b240a7b432_ABCDiatypeMono-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+
+    :root {
+      --bg: #000000;
+      --line: rgb(26, 26, 26);
+      --muted: #a0afbe;
+      --text: #e9eef5;
+      --surface: #000000;
+      --accent: #0e6ebc;
+      --accent-2: #0b4f86;
+      --danger: #ff5d5d;
+      --radius: 0;              /* square corners site-wide */
+      --pad: 12px;              /* consistent padding */
+      --gutter: 12px;           /* consistent gaps */
+      --maxw: min(100%, 1320px);
+    }
+
+    html, body { background: var(--bg); color: var(--text); }
+    * { box-sizing: border-box; }
+    body { font-family: 'ABCDiatype', Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; }
+
+    /* Top structure to inherit the component page feel */
+    .chat-wrapper { min-height: 100svh; display: grid; grid-template-rows: auto auto 1fr auto; }
+    .topbar { border-bottom: 1px solid var(--line); background: #080808; }
+    .topbar-inner { max-width: var(--maxw); margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .crumbs { color: var(--muted); font-size: 12px; letter-spacing: 0.4px; text-transform: uppercase; }
+    .version { color: var(--muted); font-family: 'ABCDiatypeMono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+
+    .hero { border-bottom: 1px solid var(--line); background: linear-gradient(180deg, #0c1014, rgba(12,16,20,0)); }
+    .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: 28px 20px; display: flex; align-items: flex-end; justify-content: space-between; }
+    .title { font-size: clamp(28px, 5vw, 44px); line-height: 1; font-weight: 700; letter-spacing: 0.2px; }
+    .subtitle { color: var(--muted); margin-top: 8px; }
+
+    /* Main grid similar to the card components layout */
+    /* Component board-style layout */
+    .board { max-width: var(--maxw); margin: 0 auto; width: 100%; padding: 18px 20px; display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gutter); }
+    @media (max-width: 1100px) { .board { grid-template-columns: repeat(2, 1fr); } }
+    .tile { min-height: 160px; background: var(--surface); border: 1px solid var(--line); position: relative; padding-top: 26px; }
+    .tile .caption { position: absolute; left: 10px; top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 0.4px; text-transform: uppercase; }
+    .chat-tile { grid-column: span 4; grid-row: span 3; display: grid; }
+    .side-tile { grid-column: span 2; grid-row: span 3; display: grid; padding: var(--pad); }
+
+    .caption { color: var(--muted); font-size: 11px; letter-spacing: 0.4px; text-transform: uppercase; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .stack { display: grid; gap: 10px; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .note { color:#d2e7ff; background: rgba(14,110,188,0.15); border:1px solid rgba(14,110,188,0.35); padding:10px 12px; border-radius:10px; font-size: 13px; }
+    .danger { color:#ffdada; background: rgba(255,93,93,0.12); border:1px solid rgba(255,93,93,0.35); padding:10px 12px; border-radius:10px; font-size: 13px; }
+
+    /* Chat card composition */
+    .chat-card { display: grid; grid-template-rows: auto 1fr auto; min-height: 68svh; }
+    .chat-roombar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: var(--pad); border-bottom: 1px solid var(--line); background: #000000; margin-top: -26px; }
+    .room-pill { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+    .room-select { background: #0b1116; color: var(--text); border: 1px solid var(--line); border-radius: 0; padding: 6px 10px; height: 32px; }
+
+    .messages { padding: var(--pad); display: grid; align-content: start; gap: 10px; overflow: auto; }
+    .msg { display: grid; gap: 4px; max-width: 70%; padding: 10px 12px; border-radius: 0; background: #0b0f13; border: 1px solid var(--line); }
+    .msg.me { margin-left: auto; background: #111a23; border-color: var(--line); }
+    .meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); letter-spacing: 0.2px; }
+    .nick { font-weight: 600; }
+    .time { opacity: 0.8; font-family: 'ABCDiatypeMono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .text { white-space: pre-wrap; word-break: break-word; font-size: 14px; line-height: 1.45; margin-top: 2px; }
+
+    .typing { padding: 0 14px 8px 14px; color: var(--muted); font-size: 12px; min-height: 18px; }
+
+    .composer { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: var(--pad); border-top: 1px solid var(--line); background: #080808; }
+    .composer input[type="text"] { background: #101010; border: 1px solid var(--line); color: var(--text); border-radius: 0; padding: 0 12px; outline: none; font-size: 13px; height: 36px; line-height: 36px; }
+    .composer input::placeholder { color: #7b8a99; }
+    .btn-send { background: #12181f; color: #e6f1ff; border: 1px solid var(--line); border-radius: 0; padding: 0 14px; height: 36px; line-height: 36px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.4px; font-size: 12px; }
+    .btn-send:hover { background:#1a1a1a; }
+    .btn-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .side { display: grid; gap: 16px; }
+    .label { color: var(--muted); font-size: 11px; letter-spacing: 0.4px; text-transform: uppercase; }
+    .row { display: flex; gap: 8px; }
+    .row input[type="text"], .row input[type="color"]{ flex:1; background:#0b1116; border:1px solid var(--line); color:#fff; border-radius:0; padding:0 12px; height: 34px; line-height: 34px; }
+
+    footer.chat-header { background:#000000; }
+    .chat-sub { color: var(--muted); font-size: 12px; }
+    .chat-logo { width: 250px; height: 70px; border-radius: 6px; background: #0e6ebc00; display: grid; place-items: center; overflow: hidden; }
+    .chat-logo img { width: 100%; height: 100%; object-fit: contain; }
+  </style>
+</head>
+<body>
+  <div class="chat-wrapper">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="crumbs">UI / 03 · SYSTEM / COMPONENTS</div>
+        <div class="version">v1.03</div>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="title">A few Components</div>
+          <div class="subtitle">Public chat room · No login · Real‑time</div>
+        </div>
+        <div class="chat-logo"><img src="assets/ID_white.png" alt="Aupulens logo" loading="lazy" decoding="async"></div>
+      </div>
+    </header>
+
+    <main class="board">
+      <section class="tile chat-tile card chat-card" aria-label="Chat panel">
+        <div class="caption">C.1 / CHAT</div>
+        <div class="chat-roombar">
+          <div class="room-pill">Room</div>
+          <select id="room" class="room-select" aria-label="Room selector">
+            <option value="global">#global</option>
+            <option value="tech">#tech</option>
+            <option value="random">#random</option>
+          </select>
+        </div>
+
+        <div id="messages" class="messages" aria-live="polite" aria-relevant="additions"></div>
+        <div id="typing" class="typing" role="status" aria-live="polite"></div>
+
+        <form id="composer" class="composer" autocomplete="off">
+          <input id="message" type="text" placeholder="Type your message…" aria-label="Message" required minlength="1" maxlength="1000">
+          <button id="send" class="btn-send" type="submit" aria-label="Send message">Send</button>
+        </form>
+      </section>
+
+      <aside class="tile side-tile card stack" aria-label="Chat settings">
+        <div class="caption">C.2 / SETTINGS</div>
+        <div class="stack">
+          <div class="label"><br><br><br><br>Your nickname</div>
+          <div class="row">
+            <input id="nickname" type="text" placeholder="e.g., Alex" aria-label="Nickname" maxlength="24">
+            <input id="color" type="color" value="#3fb5ff" aria-label="Name color" title="Choose your name color">
+          </div>
+          <div class="muted">Nickname and color are saved on this device only.</div>
+        </div>
+        <div class="stack">
+          <div class="label">About this chat</div>
+          <div class="note">This room is public. Do not share private or sensitive information. Messages may be visible to anyone with the URL.</div>
+          <div id="status" class="muted">Connecting…</div>
+          <div id="configWarning" class="danger" style="display:none">Live chat needs Firebase configuration. Paste your config in this page to enable real‑time messaging.</div>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="chat-header" style="border-top:1px solid rgba(255,255,255,0.06); border-bottom:none;">
+      <div class="chat-header-inner" style="justify-content:center;">
+        <div class="chat-sub"><center>Be respectful. No spam. Report abuse to support@aupulens.com</center></div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Firebase (compat) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+
+  <script>
+    // 1) Paste your Firebase config below (from Firebase Console > Project settings)
+    // This enables anonymous, no-login chat across users.
+    // Example:
+    // const firebaseConfig = { apiKey: "...", authDomain: "...", databaseURL: "https://<your-db>.firebaseio.com", projectId: "...", storageBucket: "...", messagingSenderId: "...", appId: "..." };
+    const firebaseConfig = null; // TODO: Paste your config and set this to the object instead of null
+
+    // 2) Basic helpers
+    const $ = (sel) => document.querySelector(sel);
+    const escapeHTML = (s) => s.replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+    const pad2 = (n) => String(n).padStart(2, '0');
+    const tsToTime = (t) => { const d = new Date(t); return `${pad2(d.getHours())}:${pad2(d.getMinutes())}`; };
+
+    // 3) State
+    let app, db, auth, room = 'global', userId = null, lastSendAt = 0, typingTimer = null;
+
+    // 4) UI State init
+    const savedNick = localStorage.getItem('chat.nickname') || '';
+    const savedColor = localStorage.getItem('chat.color') || '#3fb5ff';
+    $('#nickname').value = savedNick;
+    $('#color').value = savedColor;
+
+    // Set room from URL if provided
+    try {
+      const params = new URLSearchParams(location.search);
+      const r = params.get('room');
+      if (r && ['global','tech','random'].includes(r)) { $('#room').value = r; room = r; }
+    } catch (e) {}
+
+    $('#room').addEventListener('change', () => { room = $('#room').value; connectRealtime(true); });
+
+    // 5) SEO helper: ensure alt/rel on dynamic doc
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('img').forEach(function (img) {
+        if (!img.hasAttribute('alt')) img.setAttribute('alt', 'Aupulens image');
+        if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+        if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
+      });
+      document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+        const rel = (a.getAttribute('rel') || '').toLowerCase();
+        if (!/\bnoopener\b/.test(rel) || !/\bnoreferrer\b/.test(rel)) a.setAttribute('rel', (rel + ' noopener noreferrer').trim());
+      });
+    });
+
+    // 6) Render message
+    function addMessage({ id, uid, nick, color, text, createdAt }) {
+      const mine = uid === userId;
+      const node = document.createElement('div');
+      node.className = 'msg' + (mine ? ' me' : '');
+      node.innerHTML = `
+        <div class="meta"><span class="nick" style="color:${color || '#9fb3c8'}">${escapeHTML(nick || 'Anonymous')}</span><span class="time">${createdAt ? tsToTime(createdAt) : ''}</span></div>
+        <div class="text">${escapeHTML(text || '')}</div>
+      `;
+      $('#messages').appendChild(node);
+      node.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
+    // 7) Connect & listeners
+    async function connectRealtime(reloadList) {
+      $('#status').textContent = 'Connecting…';
+      $('#configWarning').style.display = 'none';
+
+      if (!firebaseConfig) {
+        $('#status').textContent = 'Waiting for configuration…';
+        $('#configWarning').style.display = 'block';
+        return;
+      }
+
+      try {
+        if (!app) app = firebase.initializeApp(firebaseConfig);
+        if (!auth) auth = firebase.auth();
+        if (!db) db = firebase.database();
+
+        const cred = await auth.signInAnonymously();
+        userId = cred.user ? cred.user.uid : null;
+        $('#status').textContent = `Connected · Room #${room}`;
+
+        // Load last 100 msgs
+        if (reloadList) $('#messages').innerHTML = '';
+        const ref = db.ref(`rooms/${room}/messages`).limitToLast(100);
+        ref.off();
+        ref.on('child_added', (snap) => {
+          const val = snap.val() || {};
+          addMessage({ id: snap.key, ...val });
+        });
+      } catch (e) {
+        console.error(e);
+        $('#status').textContent = 'Connection failed';
+        $('#configWarning').style.display = 'block';
+      }
+    }
+
+    // 8) Send message
+    $('#composer').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastSendAt < 700) return; // simple rate-limit
+      lastSendAt = now;
+
+      const text = ($('#message').value || '').trim();
+      if (!text) return;
+
+      const nick = ($('#nickname').value || 'Anonymous').trim().slice(0,24);
+      const color = $('#color').value || '#3fb5ff';
+      localStorage.setItem('chat.nickname', nick);
+      localStorage.setItem('chat.color', color);
+
+      try {
+        if (!db) return;
+        const ref = db.ref(`rooms/${room}/messages`).push();
+        await ref.set({
+          uid: userId || `anon-${Math.random().toString(36).slice(2)}`,
+          nick,
+          color,
+          text,
+          createdAt: firebase.database.ServerValue.TIMESTAMP
+        });
+        $('#message').value = '';
+      } catch (e) {
+        console.error(e);
+        $('#status').textContent = 'Send failed';
+      }
+    });
+
+    // 9) Typing indicator (local only for now)
+    $('#message').addEventListener('input', () => {
+      clearTimeout(typingTimer);
+      $('#typing').textContent = 'Typing…';
+      typingTimer = setTimeout(() => { $('#typing').textContent = ''; }, 900);
+    });
+
+    // Boot
+    connectRealtime(true);
+  </script>
+</body>
+</html>
