@@ -5014,7 +5014,7 @@ figcaption {
   grid-column-gap: var(--site--gutter);
   grid-row-gap: var(--site--gutter);
   grid-template-rows: auto auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr ;
   grid-auto-columns: 1fr;
   display: grid;
 }
@@ -6685,7 +6685,7 @@ figcaption {
   }
 
   .team-memners-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .footer.u-theme-brand.is-rel {
@@ -6864,7 +6864,7 @@ figcaption {
   }
 
   .team-memners-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .career-list.u-grid-column-3 {
@@ -7109,7 +7109,7 @@ figcaption {
   }
 
   .team-memners-list {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .footer-links-space.is-menu {
